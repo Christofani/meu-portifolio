@@ -1,9 +1,16 @@
 import Header from "./components/header"
+import Main from "./components/Main"
+import Footer from "./components/Footer"
+import './index.css'
 
 function App() {
 
   return (
-    <Header />  
+    <div className="bg-slate-500" >
+      <Header />
+      <Main />
+      <Footer />
+    </div>
   )
 }
 
