@@ -1,4 +1,4 @@
-# Portfólio - Rodrigo César Christofani
+# Portfólio - Rodrigo César Christofani Junior
 
 Este repositório contém o código fonte do meu portfólio, desenvolvido com React, Tailwind CSS, e animações usando Framer Motion. Aqui você pode conhecer mais sobre mim, minhas habilidades, projetos e como entrar em contato.
 
