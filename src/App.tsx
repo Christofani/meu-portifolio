@@ -1,18 +1,17 @@
 import Header from './components/header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import { motion, useInView } from 'framer-motion';
-import { ReactNode, useRef } from 'react';
-import './index.css';
-import Contato from './components/Contato';
-import Projetos from './components/Projetos';
-import Sobre from './components/Sobre';
+import Home from "./pages/Home";
+import { motion, useInView } from "framer-motion";
+import { ReactNode, useRef } from "react";
+import "./index.css";
+import Contato from "./pages/Contato";
+import Projetos from "./pages/Projetos";
+import Sobre from "./pages/Sobre";
 
 // Animação de aparecimento com suavidade
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.10 }
+  transition: { duration: 0.1 },
 };
 
 interface AnimatedSectionProps {
@@ -27,7 +26,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children }) => {
     <motion.div
       ref={ref}
       initial="initial"
-      animate={isInView ? 'animate' : 'initial'}
+      animate={isInView ? "animate" : "initial"}
       transition={{ duration: 0.8 }}
       variants={fadeInUp} // Usando o fadeInUp aqui
     >
@@ -36,32 +35,27 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children }) => {
   );
 };
 
-
-
-
 // Componente App
 function App() {
   return (
-    <div className="font-sans">
+    <div className="font-sans bg-gray-900">
       <Header />
 
       <AnimatedSection>
-        <Main />
+        <Home />
       </AnimatedSection>
 
       <AnimatedSection>
-      <Sobre />
+        <Sobre />
       </AnimatedSection>
 
       <AnimatedSection>
-      <Projetos />
+        <Projetos />
       </AnimatedSection>
 
       <AnimatedSection>
         <Contato />
       </AnimatedSection>
-
-      <Footer />
     </div>
   );
 }
