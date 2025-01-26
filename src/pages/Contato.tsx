@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import whatsapp from "../images/whatsapp_2504957.png";
 import gmail from "../images/gmail_888853.png";
 import linkedin from "../images/linkedin_2504923.png";
 import github from "../images/github_2504911.png";
 
 const Contato = () => {
+  const { t } = useTranslation();
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef(null);
 
@@ -39,24 +41,22 @@ const Contato = () => {
   };
 
   return (
-    <footer
+    <section
       id="contato"
       ref={sectionRef}
-      className="bg-slate-700 text-white flex flex-col justify-between min-h-screen py-10 px-6"
+      className=" text-white flex flex-col justify-between "
     >
       {/* Seção de contato */}
       <motion.div
-        className="flex flex-col items-center justify-center text-center py-6"
+        className="flex flex-col items-center justify-center text-center "
         initial="hidden"
         animate={isInView ? "visible" : "hidden"} // Animar com base na visibilidade
         variants={itemVariants}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-semibold mb-6">Contato</h2>
-        <p className="text-lg my-8">
-          Entre em contato comigo através das redes sociais ou envie um email.
-        </p>
-
+        <h2 className="text-4xl font-bold text-white text-center mb-8">
+          {t("contact")}
+        </h2>
         <div className="flex flex-wrap justify-center gap-8">
           {/* GitHub */}
           <motion.a
@@ -70,7 +70,7 @@ const Contato = () => {
             transition={{ duration: 0.6, delay: 0.2 }} // Atraso para o segundo item
           >
             <img src={github} alt="GitHub" className="mr-2 w-8 h-8" />
-            GitHub
+            {t("github")}
           </motion.a>
 
           {/* LinkedIn */}
@@ -85,7 +85,7 @@ const Contato = () => {
             transition={{ duration: 0.6, delay: 0.4 }} // Atraso para o terceiro item
           >
             <img src={linkedin} alt="LinkedIn" className="mr-2 w-8 h-8" />
-            LinkedIn
+            {t("linkedin")}
           </motion.a>
 
           <motion.a
@@ -98,7 +98,7 @@ const Contato = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <img src={gmail} alt="Gmail" className="mr-2 w-8 h-8" />
-            Enviar Email pelo Gmail
+            {t("gmail")}
           </motion.a>
 
           {/* WhatsApp */}
@@ -113,44 +113,38 @@ const Contato = () => {
             transition={{ duration: 0.6, delay: 0.8 }} // Atraso para o quinto item
           >
             <img src={whatsapp} alt="WhatsApp" className="mr-2 w-8 h-8" />
-            WhatsApp
+            {t("whatsapp")}
+          </motion.a>
+          <motion.a
+            href="/Curriculo_Rodrigo_Christofani-2025.pdf" // Substitua pelo caminho real do seu currículo
+            download="Curriculo_Rodrigo_Christofani-2025.pdf"
+            className="flex justify-center items-center bg-cyan-600  text-white p-4  rounded-lg hover:bg-cyan-400 transition duration-300 max-w-xs mx-auto"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={itemVariants}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <span className="mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                />
+              </svg>
+            </span>{" "}
+            {t("downloadResume")}
           </motion.a>
         </div>
       </motion.div>
-
-      <motion.a
-        href="/Curriculo_Rodrigo_Christofani-2025.pdf" // Substitua pelo caminho real do seu currículo
-        download="Curriculo_Rodrigo_Christofani-2025.pdf"
-        className="flex justify-center items-center bg-yellow-500 text-white p-4  rounded-lg hover:bg-yellow-600 transition duration-300 max-w-xs mx-auto"
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={itemVariants}
-        transition={{ duration: 0.6, delay: 1.0 }}
-      >
-        <span className="mr-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-            />
-          </svg>
-        </span>{" "}
-        Baixar Currículo
-      </motion.a>
-
-      {/* Informações de copyright */}
-      <p className="text-sm text-center mt-6">
-        © 2024 Rodrigo Christofani. Todos os direitos reservados.
-      </p>
-    </footer>
+    </section>
   );
 };
 

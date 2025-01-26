@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import ProjectCard from "../components/ProjectCard";
 import projects from "../data/projects";
 
 const Projetos = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useTranslation();
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -22,12 +24,11 @@ const Projetos = () => {
       id="projetos"
       className="py-16 bg-gray-900 w-full min-h-screen flex flex-col justify-center"
     >
-      <h2 className="text-3xl font-semibold mb-6 text-center text-white">
-        Projetos
+      <h2 className="text-4xl font-bold mb-6 text-center text-white">
+        {t("projectsTitle")}
       </h2>
       <p className="text-lg text-white mb-8 text-center">
-        Aqui estão alguns dos meus projetos, que vão desde os mais recentes até
-        projetos mais antigos.
+        {t("projectsDescription")}
       </p>
 
       <div className="relative w-full mx-auto">
@@ -87,8 +88,7 @@ const Projetos = () => {
           </svg>
         </button>
         <p className="text-sm text-white text-center italic mb-4">
-          Obs: Alguns projetos estão passando por refatoração e ainda serão
-          adicionados outros projetos em breve.
+          {t("projectsNote")}
         </p>
       </div>
     </section>
