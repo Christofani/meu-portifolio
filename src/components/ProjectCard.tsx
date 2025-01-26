@@ -13,7 +13,7 @@ const ProjectCard = ({
   <div className="relative bg-gray-800 rounded-lg mx-auto flex flex-col lg:flex-row lg:w-2/3 w-full">
     {/* Imagem do Projeto */}
     <div
-      className="relative shadow-md p-6 w-full lg:w-[50%] h-64 sm:h-80 md:h-96 mx-auto bg-cover bg-center"
+      className="relative rounded-lg shadow-md w-full lg:w-[50%] h-64 sm:h-80 md:h-96 mx-auto bg-cover bg-center"
       style={{
         backgroundImage: `url(${image})`, // Usa a imagem recebida como prop
       }}

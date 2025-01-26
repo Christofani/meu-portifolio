@@ -1,5 +1,5 @@
 import { ProjectProps } from "../types/ProjectType";
-import imagenAgrix from "../images/agrix-home.png";
+import imagenAgrix from "../images/agrix.webp";
 
 const projects: ProjectProps[] = [
   {

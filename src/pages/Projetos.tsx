@@ -20,14 +20,14 @@ const Projetos = () => {
   return (
     <section
       id="projetos"
-      className="py-10 px-6 bg-gray-900 w-full min-h-screen flex flex-col justify-center"
+      className="py-16 bg-gray-900 w-full min-h-screen flex flex-col justify-center"
     >
       <h2 className="text-3xl font-semibold mb-6 text-center text-white">
         Projetos
       </h2>
       <p className="text-lg text-white mb-8 text-center">
         Aqui estão alguns dos meus projetos mais recentes, incluindo
-        desenvolvimento full-stack e aplicações em nuvem com AWS.
+        desenvolvimento full-stack.
       </p>
       <div className="relative w-full mx-auto">
         {/* Botão de navegação para voltar */}

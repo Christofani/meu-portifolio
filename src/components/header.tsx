@@ -21,6 +21,7 @@ function Header() {
           code={language === "pt-BR" ? "BR" : "US"}
           className="mr-2 w-6 h-5"
         />
+
         <select
           value={language}
           onChange={handleLanguageChange}
