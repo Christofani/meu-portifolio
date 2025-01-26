@@ -1,19 +1,27 @@
-import { useState } from 'react';
-import { FlagIcon } from 'react-flag-kit';
+import { useState } from "react";
+import { FlagIcon } from "react-flag-kit";
 
 function Header() {
-  const [language, setLanguage] = useState('pt-BR');
+  const [language, setLanguage] = useState("pt-BR");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value);
-    // Aqui você pode adicionar a lógica para mudar o idioma do conteúdo do seu portfólio
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
   };
 
   return (
-    <header className="bg-slate-700 flex justify-between items-center p-5">
+    <header className="bg-gray-950 flex justify-between items-center p-5 relative">
       {/* Select de idioma com bandeiras */}
       <div className="flex items-center">
-        <FlagIcon code={language === 'pt-BR' ? 'BR' : 'US'} className="mr-2 w-6 h-6" />
+        <FlagIcon
+          code={language === "pt-BR" ? "BR" : "US"}
+          className="mr-2 w-6 h-5"
+        />
+
         <select
           value={language}
           onChange={handleLanguageChange}
@@ -24,19 +32,55 @@ function Header() {
         </select>
       </div>
 
-      <nav>
-        <ul className="flex space-x-6 md:space-x-10 list-none p-0 text-sm md:text-base">
+      {/* Ícone do menu em dispositivos móveis */}
+      <div className="md:hidden flex items-center">
+        <button
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          className="text-white text-2xl"
+        >
+          {menuOpen ? "✖" : "☰"}
+        </button>
+      </div>
+
+      {/* Navegação */}
+      <nav
+        className={`${
+          menuOpen ? "flex" : "hidden"
+        } md:flex absolute md:static top-full left-0 right-0 bg-gray-950 md:bg-transparent p-5 md:p-0 flex-col md:flex-row items-center md:space-x-10 text-sm md:text-base`}
+      >
+        <ul className="flex flex-col md:flex-row md:space-x-10 list-none p-0">
           <li>
-            <a href="#home" className="text-white hover:text-gray-300 transition-colors duration-200">Home</a>
+            <a
+              href="#home"
+              className="text-white hover:text-gray-400 transition-colors duration-200"
+            >
+              Início
+            </a>
           </li>
           <li>
-            <a href="#sobre_mim" className="text-white hover:text-gray-300 transition-colors duration-200">Sobre</a>
+            <a
+              href="#sobre_mim"
+              className="text-white hover:text-gray-300 transition-colors duration-200"
+            >
+              Sobre
+            </a>
           </li>
           <li>
-            <a href="#projetos" className="text-white hover:text-gray-300 transition-colors duration-200">Projetos</a>
+            <a
+              href="#projetos"
+              className="text-white hover:text-gray-300 transition-colors duration-200"
+            >
+              Projetos
+            </a>
           </li>
           <li>
-            <a href="#contato" className="text-white hover:text-gray-300 transition-colors duration-200">Contato</a>
+            <a
+              href="#contato"
+              className="text-white hover:text-gray-300 transition-colors duration-200"
+            >
+              Contato
+            </a>
           </li>
         </ul>
       </nav>
