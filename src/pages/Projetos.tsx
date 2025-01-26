@@ -26,9 +26,10 @@ const Projetos = () => {
         Projetos
       </h2>
       <p className="text-lg text-white mb-8 text-center">
-        Aqui estão alguns dos meus projetos mais recentes, incluindo
-        desenvolvimento full-stack.
+        Aqui estão alguns dos meus projetos, que vão desde os mais recentes até
+        projetos mais antigos.
       </p>
+
       <div className="relative w-full mx-auto">
         {/* Botão de navegação para voltar */}
         <button
@@ -85,6 +86,10 @@ const Projetos = () => {
             />
           </svg>
         </button>
+        <p className="text-sm text-white text-center italic mb-4">
+          Obs: Alguns projetos estão passando por refatoração e ainda serão
+          adicionados outros projetos em breve.
+        </p>
       </div>
     </section>
   );

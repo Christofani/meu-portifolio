@@ -66,19 +66,6 @@ function Home() {
 
       <div className="w-full max-w-5xl border-t border-gray-600 my-8"></div>
 
-      <motion.div
-        className="w-full max-w-5xl px-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      >
-        <p className="text-white text-lg sm:text-xl text-center">
-          Este é o meu site pessoal, onde compartilho um pouco sobre mim, meus
-          projetos e minhas ideias. Fique à vontade para navegar e conhecer um
-          pouco mais sobre mim.
-        </p>
-      </motion.div>
-
       <div className="mt-12 w-full max-w-4xl">
         <h2 className="text-4xl font-bold text-white text-center mb-8">
           Minhas Stacks

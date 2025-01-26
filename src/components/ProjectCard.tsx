@@ -1,5 +1,3 @@
-// components/ProjectCard.tsx
-
 import { ProjectProps } from "../types/ProjectType";
 
 const ProjectCard = ({
@@ -39,14 +37,22 @@ const ProjectCard = ({
         ))}
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-auto">
+        {/* Link para Ver Aplicação */}
         <a
-          href={appLink}
+          href={appLink || "#"} // Define um link padrão vazio
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white w-full sm:w-1/2 text-center hover:bg-gray-700 bg-gray-500 p-2 font-medium rounded-xl"
+          className={`text-white w-full sm:w-1/2 text-center ${
+            appLink
+              ? "hover:bg-gray-700 bg-gray-500"
+              : "bg-gray-400 cursor-not-allowed"
+          } p-2 font-medium rounded-xl`}
+          style={{ pointerEvents: appLink ? "auto" : "none" }}
         >
-          Ver Aplicação
+          {appLink ? "Ver Aplicação" : "🚧 Em Construção"}
         </a>
+
+        {/* Link para Ver Repositório */}
         <a
           href={repoLink}
           target="_blank"
