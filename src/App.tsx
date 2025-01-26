@@ -3,9 +3,10 @@ import Home from "./pages/Home";
 import { motion, useInView } from "framer-motion";
 import { ReactNode, useRef } from "react";
 import "./index.css";
-import Contato from "./pages/Contato";
 import Projetos from "./pages/Projetos";
 import Sobre from "./pages/Sobre";
+import Tragetoria from "./pages/Tragetoria";
+import Footer from "./components/footer";
 
 // Animação de aparecimento com suavidade
 const fadeInUp = {
@@ -54,8 +55,10 @@ function App() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <Contato />
+        <Tragetoria />
       </AnimatedSection>
+
+      <Footer />
     </div>
   );
 }

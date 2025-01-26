@@ -1,8 +1,8 @@
 // types/ProjectType.ts
 
 export interface ProjectProps {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   appLink: string;
   repoLink: string;
   image: string;

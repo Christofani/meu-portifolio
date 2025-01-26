@@ -1,12 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FlagIcon } from "react-flag-kit";
+import "../Context/i18n.js"; // Importa a configuração do i18next
 
 function Header() {
-  const [language, setLanguage] = useState("pt-BR");
+  const { t, i18n } = useTranslation(); // Hook para tradução
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value);
+    const selectedLanguage = e.target.value;
+    i18n.changeLanguage(selectedLanguage); // Altera o idioma
   };
 
   const toggleMenu = () => {
@@ -14,18 +17,18 @@ function Header() {
   };
 
   return (
-    <header className="bg-gray-950 flex justify-between items-center p-5 relative">
-      {/* Select de idioma com bandeiras */}
-      <div className="flex items-center">
+    <header className="bg-gray-950 flex justify-between items-center p-5 relative font-bold">
+      {/* Seletor de idioma com bandeiras */}
+      <div className="flex items-center cursor-pointer">
         <FlagIcon
-          code={language === "pt-BR" ? "BR" : "US"}
+          code={i18n.language === "pt-BR" ? "BR" : "US"}
           className="mr-2 w-6 h-5"
         />
-
         <select
-          value={language}
+          value={i18n.language}
           onChange={handleLanguageChange}
-          className="bg-gray-800 text-white p-2 rounded-full"
+          className="bg-gray-800 text-white p-2 rounded-full cursor-pointer"
+          aria-label="Select language"
         >
           <option value="pt-BR">PT-BR</option>
           <option value="en-US">EN-US</option>
@@ -55,23 +58,7 @@ function Header() {
               href="#home"
               className="text-white hover:text-gray-400 transition-colors duration-200"
             >
-              Início
-            </a>
-          </li>
-          <li>
-            <a
-              href="#sobre_mim"
-              className="text-white hover:text-gray-300 transition-colors duration-200"
-            >
-              Sobre
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projetos"
-              className="text-white hover:text-gray-300 transition-colors duration-200"
-            >
-              Projetos
+              {t("home")}
             </a>
           </li>
           <li>
@@ -79,7 +66,31 @@ function Header() {
               href="#contato"
               className="text-white hover:text-gray-300 transition-colors duration-200"
             >
-              Contato
+              {t("contact")}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#sobre_mim"
+              className="text-white hover:text-gray-300 transition-colors duration-200"
+            >
+              {t("about")}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#projetos"
+              className="text-white hover:text-gray-300 transition-colors duration-200"
+            >
+              {t("projects")}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#tragetoria"
+              className="text-white hover:text-gray-300 transition-colors duration-200"
+            >
+              {t("trajectory")}
             </a>
           </li>
         </ul>
